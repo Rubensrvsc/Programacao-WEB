@@ -2,23 +2,23 @@
 
 # Meus contatos:
 
-github: Rubensrvsc
+Github: https://github.com/Rubensrvsc
 
-email: Rubens.rvsc@gmail.com
+Email: Rubens.rvsc@gmail.com
 
 # Habilidades:
 
-desenvolvimento web com javascript framework AngularJs
+Desenvolvimento web com javascript framework AngularJs
 
-linguagem de programação Python
+Linguagem de programação Python
 
 HTML,CSS 
 
 # Interesses Academicos:
 
-data science
+Data science
 
-SPA
+Algoritmos de tomadas de decisão
 
 # Portifólio:
 
@@ -32,8 +32,8 @@ Diferentes tipos de sistemas web(sistemas offline, ERP online etc)
 
 # Outras coisas que julgo interessante:
 
-programação linear (algoritmos de tomada de decisão e otimização de processos)
+Programação linear
 
-automatização de processos
+Automatização de processos
 
 
