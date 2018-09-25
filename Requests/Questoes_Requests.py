@@ -32,15 +32,14 @@ def busca_link():
     for link in all_links:
         print(link.get("href"))
 
-    print(soup.find_all("src"))
-
+'''
     print("\nNome do link")
     links=soup.a
     lista_links=[]
     for i in links:
         lista_links.append(i)
     for i in lista_links:
-        print (i)
+        print (i)'''
     pass
 if __name__=="__main__":
     main()
