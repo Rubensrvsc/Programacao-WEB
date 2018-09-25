@@ -20,6 +20,8 @@ Data science
 
 Algoritmos de tomadas de decisão
 
+R
+
 # Portifólio:
 
 https://github.com/felipesousafs/projetoEventos
