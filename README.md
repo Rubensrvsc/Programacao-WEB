@@ -22,8 +22,6 @@ Algoritmos de tomadas de decisão
 
 # Portifólio:
 
-https://github.com/felipesousafs/projetoEventos
-
 # Expectativa quanto a disciplina:
 
 Aprender os conceitos chave de programação WEB e a partir disso implementar esses conceitos em uma (ou várias) linguagens de programação
