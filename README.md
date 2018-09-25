@@ -2,8 +2,6 @@
 
 # Meus contatos:
 
-Github: https://github.com/Rubensrvsc
-
 Email: Rubens.rvsc@gmail.com
 
 # Habilidades:
