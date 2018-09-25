@@ -12,6 +12,8 @@ Linguagem de programação Python
 
 HTML,CSS 
 
+JAVA
+
 # Interesses Academicos:
 
 Data science
@@ -29,6 +31,8 @@ Aprender os conceitos chave de programação WEB e a partir disso implementar es
 # Possíveis temas:
 
 Diferentes tipos de sistemas web(sistemas offline, ERP online etc)
+
+SPA
 
 # Outras coisas que julgo interessante:
 
