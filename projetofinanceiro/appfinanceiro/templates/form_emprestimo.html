@@ -1,0 +1,11 @@
+<html>
+    <head></head>
+    <body>
+        <h3>Formulário de Cadastro de emprestimo</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{formemprestimo.as_p}}
+            <input type="submit" >
+        </form>
+    </body>
+</html>

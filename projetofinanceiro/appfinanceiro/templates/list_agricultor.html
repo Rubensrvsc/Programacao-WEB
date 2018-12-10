@@ -1,0 +1,17 @@
+<html>
+    <head></head>
+    <body>
+        <h3>Agricultores</h3>
+        {% if agricultor.empty %}
+            <h2 >Sem agricultor cadastrado</h2>
+        {% else %}
+            {% for agr in agricultor %}
+                <div>
+                <h2>{{agr.nome_agricultor}}</h2>
+                <p>{{agr.qtd_credito|linebreaksbr}}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+        <a href="{% url 'formagricultor' %}">Adicionar</a>
+    </body>
+</html>

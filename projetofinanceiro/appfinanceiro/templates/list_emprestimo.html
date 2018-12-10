@@ -1,0 +1,18 @@
+<html>
+    <head></head>
+    <body>
+        <h3>Emprestimos</h3>
+        {% if emprestimo.empty %}
+            <h2 >Sem emprestimos cadastrado</h2>
+        {% else %}
+            {% for emp in emprestimo %}
+                <div>
+                <h2>{{emp.qtd_emprestimo}}</h2>
+                <p>{{emp.juros|linebreaksbr}}</p>
+                <p>{{emp.parcela|linebreaksbr}}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+        <a href="{% url 'formemprestimo' %}">Adicionar</a>
+    </body>
+</html>
