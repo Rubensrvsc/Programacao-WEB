@@ -1,0 +1,20 @@
+<html>
+    <head></head>
+    <body>
+        <h2>Emprestimos</h2>
+            {% for emp in emprestimo %}
+                <div>
+                <h3>Quantidade do emprestimo</h3>
+                <p>{{emp.qtd_emprestimo}}</p>
+                <h3>Quantidade do juros</h3>
+                <p>{{emp.juros}}</p>
+                <h3>Quantidade de parcelas</h3>
+                <p>{{emp.qtd_parcela}}</p>
+                <a href="{% url 'editemprestimo' emp.id %}" >Editar emprestimo</a>
+                <a href="{% url 'delete_emprestimo' emp.id %}" >Deletar emprestimo</a>
+                </div>
+            {% endfor %}
+        </br>
+        <a href="{% url 'formemprestimo' %}">Adicionar</a>
+    </body>
+</html>
