@@ -1,0 +1,16 @@
+<html>
+    <head></head>
+    <body>
+        <h3>Culturas</h3>
+        {% if cultura.empty %}
+            <h2 >Sem cultura cadastrada</h2>
+        {% else %}
+            {% for ct in cultura %}
+                <div>
+                <h2>{{ct.nome_cultura}}</h2>
+                </div>
+            {% endfor %}
+        {% endif %}
+        <a href="{% url 'formcultura' %}">Adicionar</a>
+    </body>
+</html>

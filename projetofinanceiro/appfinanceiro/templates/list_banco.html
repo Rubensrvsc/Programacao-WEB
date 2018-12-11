@@ -1,0 +1,16 @@
+<html>
+    <head></head>
+    <body>
+        <h3>Bancos</h3>
+        {% if banco.empty %}
+            <h2 >Sem bancos cadastrado</h2>
+        {% else %}
+            {% for bc in banco %}
+                <div>
+                <h2>{{bc.nome_banco}}</h2>
+                </div>
+            {% endfor %}
+        {% endif %}
+        <a href="{% url 'formbanco' %}">Adicionar</a>
+    </body>
+</html>
