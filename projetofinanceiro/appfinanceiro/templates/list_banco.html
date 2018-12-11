@@ -2,12 +2,20 @@
     <head></head>
     <body>
         <h3>Bancos</h3>
+        <div>
+            <form method="GET" action="{% url 'procura_banco' %}">
+                <input type="search" placeholder="Procurar Banco" aria-label="Procura Banco" name="procura_banco">
+                <button type="submit">Procura Banco</button>
+            </form>
+        </div>
         {% if banco.empty %}
             <h2 >Sem bancos cadastrado</h2>
         {% else %}
             {% for bc in banco %}
                 <div>
                 <h2>{{bc.nome_banco}}</h2>
+                <a href="{% url 'editbanco' bc.id %}" >Editar banco</a>
+                <a href="{% url 'delete_banco' bc.id %}" >Deletar banco</a>
                 </div>
             {% endfor %}
         {% endif %}

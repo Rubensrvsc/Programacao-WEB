@@ -7,6 +7,9 @@ class AgricultorForm(ModelForm):
     class Meta:
         model = Agricultor
         fields = '__all__'
+        widgets = {
+            'nome_agricultor': forms.CheckboxSelectMultiple()
+        }
     
     def clean_qtd_credito(self):
         credito=self.cleaned_data['qtd_credito']
@@ -20,18 +23,22 @@ class EmprestimoForm(ModelForm):
 
     class Meta:
         model = Emprestimo
-        fields = '__all__'
+        fields = ('qtd_emprestimo','juros','qtd_parcela','banco')
+        widgets = {
+            'banco': forms.CheckboxSelectMultiple()
+        }
     
-    def clean_qtd_emprestimo(self):
-        emprestimo = self.cleaned_data['qtd_emprestimo']
-
-        if emprestimo <= 0:
-            raise forms.ValidationError('Quantidade de emprestimo nula ou negativa')
-        else:
-            return emprestimo
-
     def __init__(self,*args,**kwargs):
         super(EmprestimoForm,self).__init__(*args,**kwargs)
+        self.fields['banco'].queryset = Banco.objects.all()
+    
+    def clean_qtd_emprestimo(self):
+        qtd_emprestimo = self.cleaned_data['qtd_emprestimo']
+
+        if qtd_emprestimo <= 0:
+            raise forms.ValidationError('Quantidade de emprestimo nula ou negativa')
+        else:
+            return qtd_emprestimo
 
 class BancoForm(ModelForm):
 

@@ -24,7 +24,7 @@ def list_cultura(request):
 
 def form_emprestimo(request):
     if request.method == 'POST':
-        emprestimoform = EmprestimoForm(request or None)
+        emprestimoform = EmprestimoForm(request.POST or None)
         if emprestimoform.is_valid():
             emprestimoinstance = emprestimoform.save(commit=False)
             emprestimoinstance.dt_emprestmo=timezone.now()
@@ -36,7 +36,7 @@ def form_emprestimo(request):
 
 def form_agricultor(request):
     if request.method == 'POST':
-        agricultorform = AgricultorForm(request or None)
+        agricultorform = AgricultorForm(request.POST or None)
         if agricultorform.is_valid():
             agricultorform.save()
             return redirect('index')
@@ -46,7 +46,7 @@ def form_agricultor(request):
 
 def form_banco(request):
     if request.method == 'POST':
-        bancoform = BancoForm(request or None)
+        bancoform = BancoForm(request.POST or None)
         if bancoform.is_valid():
             bancoform.save()
             return redirect('index')
@@ -56,10 +56,15 @@ def form_banco(request):
 
 def form_cultura(request):
     if request.method == 'POST':
-        culturaform = TipoCulturaForm(request or None)
+        culturaform = TipoCulturaForm(request.POST or None)
         if culturaform.is_valid():
             culturaform.save()
             return redirect('index')
     else:
         culturaform = TipoCulturaForm()
     return render(request, 'form_cultura.html', {'formcultura':culturaform})
+
+def procura_banco(request):
+    banco = request.GET['procura_banco']
+    bancos = Banco.objects.filter(nome_banco__contains=banco)
+    return render(request, 'list_banco.html', {'banco':bancos})

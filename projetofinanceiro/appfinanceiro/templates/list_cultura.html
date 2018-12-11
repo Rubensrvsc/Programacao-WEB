@@ -8,6 +8,8 @@
             {% for ct in cultura %}
                 <div>
                 <h2>{{ct.nome_cultura}}</h2>
+                <a href="{% url 'editcultura' ct.id %}" >Editar cultura</a>
+                <a href="{% url 'delete_cultura' ct.id %}" >Deletar cultura</a>
                 </div>
             {% endfor %}
         {% endif %}

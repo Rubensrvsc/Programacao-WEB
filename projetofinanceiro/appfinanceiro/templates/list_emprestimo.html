@@ -10,6 +10,8 @@
                 <h2>{{emp.qtd_emprestimo}}</h2>
                 <p>{{emp.juros|linebreaksbr}}</p>
                 <p>{{emp.parcela|linebreaksbr}}</p>
+                <a href="{% url 'editemprestimo' emp.id %}" >Editar emprestimo</a>
+                <a href="{% url 'delete_emprestimo' emp.id %}" >Deletar emprestimo</a>
                 </div>
             {% endfor %}
         {% endif %}

@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from appfinanceiro import views
+from appfinanceiro import views,views_alter
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,5 +28,15 @@ urlpatterns = [
     path('emprestimo', views.form_emprestimo, name='formemprestimo'),
     path('banco', views.form_banco, name='formbanco'),
     path('cultura', views.form_cultura, name='formcultura'),
-    #path('procura<str:palavra>')
+
+    path('edit_banco/<int:id_banco>',views_alter.banco_edit,name='editbanco'),
+    path('edit_emprestimo/<int:id_emprestimo>',views_alter.emprestimo_edit,name='editemprestimo'),
+    path('edit_agricultor/<int:id_agricultor>',views_alter.agricultor_edit,name='editagricultor'),
+    path('edit_cultura/<int:id_banco>',views_alter.cultura_edit,name='editcultura'),
+
+    path('<int:id_banco>',views_alter.deletar_banco,name='delete_banco'),
+    path('<int:id_emprestimo>',views_alter.deletar_emprestimo,name='delete_emprestimo'),
+    path('<int:id_agricultor>',views_alter.deletar_agricultor,name='delete_agricultor'),
+    path('<int:id_banco>',views_alter.deletar_banco,name='delete_banco'),
+    path('procura_banco',views.procura_banco,name='procura_banco'),
 ]
