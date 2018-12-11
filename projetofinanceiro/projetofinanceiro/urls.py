@@ -32,11 +32,11 @@ urlpatterns = [
     path('edit_banco/<int:id_banco>',views_alter.banco_edit,name='editbanco'),
     path('edit_emprestimo/<int:id_emprestimo>',views_alter.emprestimo_edit,name='editemprestimo'),
     path('edit_agricultor/<int:id_agricultor>',views_alter.agricultor_edit,name='editagricultor'),
-    path('edit_cultura/<int:id_banco>',views_alter.cultura_edit,name='editcultura'),
+    path('edit_cultura/<int:id_cultura>',views_alter.cultura_edit,name='editcultura'),
 
     path('<int:id_banco>',views_alter.deletar_banco,name='delete_banco'),
     path('<int:id_emprestimo>',views_alter.deletar_emprestimo,name='delete_emprestimo'),
     path('<int:id_agricultor>',views_alter.deletar_agricultor,name='delete_agricultor'),
-    path('<int:id_banco>',views_alter.deletar_banco,name='delete_banco'),
+    path('<int:id_cultura>',views_alter.deletar_cultura,name='delete_cultura'),
     path('procura_banco',views.procura_banco,name='procura_banco'),
 ]

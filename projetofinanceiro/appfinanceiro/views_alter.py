@@ -48,16 +48,16 @@ def agricultor_edit(request,id_agricultor):
 
 def deletar_banco(request, id_banco):
     Banco.objects.filter(id=id_banco).delete()
-    return redirect('index')
+    return redirect('lista_banco')
 
 def deletar_emprestimo(request, id_emprestimo):
     Emprestimo.objects.filter(id=id_emprestimo).delete()
-    return redirect('index')
+    return redirect('lista_emprestimo')
 
 def deletar_cultura(request, id_cultura):
     TipoCultura.objects.filter(id=id_cultura).delete()
-    return redirect('index')
+    return redirect('lista_cultura')
 
 def deletar_agricultor(request, id_agricultor):
     Agricultor.objects.filter(id=id_agricultor).delete()
-    return redirect('index')
+    return redirect('lista_agricultor')

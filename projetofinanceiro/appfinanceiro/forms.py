@@ -8,7 +8,8 @@ class AgricultorForm(ModelForm):
         model = Agricultor
         fields = '__all__'
         widgets = {
-            'nome_agricultor': forms.CheckboxSelectMultiple()
+            'tipo_cultura': forms.CheckboxSelectMultiple(),
+            'emprestimo': forms.CheckboxSelectMultiple()
         }
     
     def clean_qtd_credito(self):
@@ -30,7 +31,7 @@ class EmprestimoForm(ModelForm):
     
     def __init__(self,*args,**kwargs):
         super(EmprestimoForm,self).__init__(*args,**kwargs)
-        self.fields['banco'].queryset = Banco.objects.all()
+        self.fields['banco'].queryset = Banco.objects.filter(ativo=True)
     
     def clean_qtd_emprestimo(self):
         qtd_emprestimo = self.cleaned_data['qtd_emprestimo']
