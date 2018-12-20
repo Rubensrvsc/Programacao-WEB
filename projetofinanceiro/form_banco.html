@@ -1,0 +1,11 @@
+<html>
+    <head></head>
+    <body>
+        <h3>Formulário de Cadastro de Banco</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{formbanco.as_p}}
+            <input type="submit" >
+        </form>
+    </body>
+</html>

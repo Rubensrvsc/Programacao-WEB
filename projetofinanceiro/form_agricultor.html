@@ -1,0 +1,11 @@
+<html>
+    <head></head>
+    <body>
+        <h3>Formulário de Cadastro de Agricultores</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{formagricultor.as_p}}
+            <input type="submit" >
+        </form>
+    </body>
+</html>
