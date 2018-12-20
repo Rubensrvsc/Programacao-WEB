@@ -1,0 +1,53 @@
+#Random Famous Quotes
+#get
+import requests
+contador=2
+cat='famous'
+response = requests.get("https://andruxnet-random-famous-quotes.p.mashape.com/?cat=%s&count=%s" %(cat,contador),
+  headers={
+    "X-Mashape-Key": "H26JGJRcKymshaPgfczvYcVe1Hhnp1YZF8wjsnNzVjMrMPttGI",
+    "Accept": "application/json"
+  }
+)
+print (response.json())
+
+#post
+cat_post='movies'
+response_post = requests.post("https://andruxnet-random-famous-quotes.p.mashape.com/?cat=%s&count=%s"%(cat_post,contador),
+  headers={
+    "X-Mashape-Key": "H26JGJRcKymshaPgfczvYcVe1Hhnp1YZF8wjsnNzVjMrMPttGI",
+    "Content-Type": "application/x-www-form-urlencoded",
+    "Accept": "application/json"
+  }
+)
+
+print (response_post.json())
+
+'''Sports data api:
+API para acesso de dados de variados esportes
+'''
+
+import http.client
+
+conn = http.client.HTTPSConnection("api.sportradar.us")
+
+conn.request("GET", "/nfl-ot1/games/2006/REG/03/schedule.xml?api_key={your_api_key}")
+
+res = conn.getresponse()
+data = res.read()
+
+print(data.decode("utf-8"))
+
+#converter bitcoin
+from_btc='btc'
+qtd='4'
+to='usd'
+
+response_btc = requests.get("https://bravenewcoin-v1.p.mashape.com/convert?from=%s&qty=%s&to=%s" %(from_btc,qtd,to),
+  headers={
+    "X-Mashape-Key": "H26JGJRcKymshaPgfczvYcVe1Hhnp1YZF8wjsnNzVjMrMPttGI",
+    "Accept": "application/json"
+  }
+)
+
+print (response_btc.json())
