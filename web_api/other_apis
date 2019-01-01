@@ -1,4 +1,5 @@
 #Random Famous Quotes
+#https://market.mashape.com/andruxnet/random-famous-quotes
 #get
 import requests
 contador=2
@@ -25,6 +26,7 @@ print (response_post.json())
 
 '''Sports data api:
 API para acesso de dados de variados esportes
+https://developer.sportradar.com/io-docs
 '''
 
 import http.client
@@ -39,6 +41,7 @@ data = res.read()
 print(data.decode("utf-8"))
 
 #converter bitcoin
+#https://market.mashape.com/warting/currency-converter
 from_btc='btc'
 qtd='4'
 to='usd'
