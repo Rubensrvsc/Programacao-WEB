@@ -40,3 +40,11 @@ class Convite(models.Model):
     
     def recusar(self):
         self.delete()
+
+class Timeline(models.Model):
+    perfil = models.OneToOneField(Perfil,related_name='timeline',on_delete=models.CASCADE)
+
+class Post(models.Model):
+    texto = models.CharField(max_length=140)
+    data = models.DateTimeField(auto_now=True)
+    timeline = models.ForeignKey(Timeline, related_name = 'post_timeline' ,on_delete = models.CASCADE)

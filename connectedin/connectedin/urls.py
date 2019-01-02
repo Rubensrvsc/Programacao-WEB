@@ -28,6 +28,10 @@ urlpatterns = [
     path('convite/<int:convite_id>/recusar',views.recusar, name='recusar'),
     path('convite/<int:perfil_id>/desfazer',views.desfazer_amizade, name='desfazer'),
     path('registrar/',RegistarUsuarioView.as_view(),name='registrar'),
+    path('perfil/mudar_senha',views.mudar_senha,name='mudar_senha'),
+    path('perfil/alterar_senha',views.alterar_senha,name='alterar_senha'),
     path('login/', v.LoginView.as_view(template_name='login.html'), name = 'login'), 
     path('logout/', v.LogoutView.as_view(template_name='login.html'), name="logout"),
+    path('perfil/pesquisar',views.pesquisar,name='pesquisar'),
+    path('perfil/mostrar',views.realizar_pesquisa,name='realizar_pesquisa'),
 ]

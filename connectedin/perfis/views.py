@@ -1,5 +1,6 @@
 from perfis.models import Perfil, Convite
 from django.shortcuts import render,redirect
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 from django.http import HttpResponseNotFound
@@ -54,4 +55,31 @@ def desfazer_amizade(request,perfil_id):
 	perfil.desfazer(get_perfil_logado(request))
 	return redirect('index')
 
+@login_required
+def alterar_senha(request):
+	return render(request,'alterar_senha.html')
+	'''buscar a senha do usuario, mostrar e mandar ele
+	digitar uma nova senha para ser salva'''
+@login_required
+def mudar_senha(request):
+	senha=request.GET['nova_senha']
+	perfil=request.user
+	perfil.set_password(senha)
+	#perfil.usuario.password=senha
+	perfil.save()
+	return redirect('index')
 
+@login_required
+def pesquisar(request):
+    return render(request,'pesquisa_usuario.html')
+
+@login_required
+def realizar_pesquisa(request):
+	nome=request.GET['nome']
+	perfis = Perfil.objects.filter(nome__contains=nome)
+	return render(request,'mostrar_pesquisa.html',{'perfil':perfis})
+	pass
+
+def recuperar_senha(request):
+    '''O usuario fornece o email e nome e o sistema busca no banco o seu registro
+	para mudança de senha'''
