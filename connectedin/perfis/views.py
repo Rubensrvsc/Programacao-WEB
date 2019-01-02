@@ -1,9 +1,11 @@
-from perfis.models import Perfil, Convite
+from perfis.models import Perfil, Convite,Post
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 # Create your views here.
-from django.http import HttpResponseNotFound
+from django.http import HttpResponseNotFound,HttpResponseRedirect
+from .forms import *
+from django.contrib.auth import authenticate, login, logout
 
 @login_required
 def index(request):
@@ -67,6 +69,8 @@ def mudar_senha(request):
 	perfil.set_password(senha)
 	#perfil.usuario.password=senha
 	perfil.save()
+	perfil_autenticado=authenticate(username=request.user.username,password=senha)
+	login(request,perfil_autenticado)
 	return redirect('index')
 
 @login_required
@@ -80,6 +84,29 @@ def realizar_pesquisa(request):
 	return render(request,'mostrar_pesquisa.html',{'perfil':perfis})
 	pass
 
+@login_required
+def exibir_timeline(request):
+    posts=request.user.perfil.timeline
+    return render(request,'timeline.html',{'posts':posts})
+
+@login_required
+def incluir_post(request):
+    if request.method == 'POST':
+        postform = PostForm(request.POST or None)
+        if postform.is_valid():
+            postinstance = postform.save(commit=False)
+            postinstance.timeline=request.user.perfil
+            postinstance.save()
+            return redirect('index')
+    else:
+        postform=PostForm()
+    return render(request,'add_post.html',{'post':postform})
+
+@login_required
+def excluir_post(request,id_post):
+    Post.objects.filter(id=id_post).delete()
+    return redirect('timeline')
+    
 def recuperar_senha(request):
     '''O usuario fornece o email e nome e o sistema busca no banco o seu registro
 	para mudança de senha'''

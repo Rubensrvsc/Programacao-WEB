@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+{% block body %}
 {% if perfil|length > 0 %}
     {% for p in perfil %}
     <h3>Nome do usuario</h3>
@@ -8,3 +10,4 @@
 {% else %}
     <p>sem perfis</p>
 {%endif%}
+{%endblock%}

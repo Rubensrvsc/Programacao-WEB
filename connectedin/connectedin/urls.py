@@ -34,4 +34,7 @@ urlpatterns = [
     path('logout/', v.LogoutView.as_view(template_name='login.html'), name="logout"),
     path('perfil/pesquisar',views.pesquisar,name='pesquisar'),
     path('perfil/mostrar',views.realizar_pesquisa,name='realizar_pesquisa'),
+    path('perfil/timeline',views.exibir_timeline,name='timeline'),
+    path('perfil/post',views.incluir_post,name='incluir_post'),
+    path('perfil/<int:id_post>/excluir',views.excluir_post,name='excluir_post'),
 ]
